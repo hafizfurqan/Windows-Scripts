@@ -37,5 +37,4 @@ echo Windows XP
 pause
 cls
 :WIN
-rem etc etc
 endlocal
