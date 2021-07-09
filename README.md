@@ -1,2 +1,3 @@
-# Windows-Version
-Small batch script to displays Windows using combination of ver and other commands
+# Windows-Scripts
+Small batch scripts for windows that made life a little easier 
+Here are some of the scripts I use.
