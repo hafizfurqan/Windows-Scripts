@@ -1,0 +1,32 @@
+@echo off
+setlocal enabledelayedexpansion
+
+REM List of systems to check
+set list=www.google.com www.yahoo.com www.notasite.com
+
+set /a failed=0
+set /a passed=0
+set /a count=0
+
+echo PingTest Servers on %list% :
+
+(for %%a in (%list%) do ( 
+    set /a "count+=1"
+    call :PingVerbose %%a && set /a "passed=!passed!+1" || set /a "failed=!failed!+1"
+))
+
+echo ------------
+echo Result: %passed% of %count% systems are pingable
+pause
+endlocal
+exit /b 0
+
+:Ping <Address>
+ping "%~1" -n 1 >NUL
+exit /b %ErrorLevel%
+
+:PingVerbose <Address>
+call :Ping %1 && echo %~1 - [ONLINE] || echo %~1 - [OFFLINE] 
+exit /b %ErrorLevel%
+
+::https://stackoverflow.com/questions/21245545/ping-test-using-bat-file-trouble-with-errorlevel/21252613#21252613
