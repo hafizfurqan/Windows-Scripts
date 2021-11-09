@@ -38,3 +38,5 @@ pause
 cls
 :WIN
 endlocal
+
+::https://stackoverflow.com/questions/13212033/get-windows-version-in-a-batch-file
